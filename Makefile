@@ -4,6 +4,10 @@ PYTHON_FILES := $(shell find . -name "*.py")
 # Default target
 all: format lint
 
+# Install all python dependencies
+install:
+	pipenv install
+
 # Format code using black
 format:
 	black $(PYTHON_FILES)
