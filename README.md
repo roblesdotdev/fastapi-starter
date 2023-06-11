@@ -21,3 +21,11 @@ pipenv install pytest pylint black --dev
 that allows you to efficiently add and edit the components of your OAS. You can
 specify detailed information such as descriptions, examples, and validation
 constraints for each element of your API.
+
+### Generate schema from oas
+
+```
+mkdir todo
+pipenv install datamodel-code-generator
+datamodel-codegen --input oas.yaml output todo/schema.py
+```
