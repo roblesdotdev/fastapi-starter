@@ -26,6 +26,33 @@ constraints for each element of your API.
 
 ```
 mkdir todo
-pipenv install datamodel-code-generator
+pipenv install datamodel-code-generator --dev
 datamodel-codegen --input oas.yaml output todo/schema.py
+```
+
+### Setup fastapi
+
+```
+pipenv install fastapi uvicorn
+```
+
+```
+# todo/server.py
+from fastapi import FastApi
+
+server = FastApi(debug=True)
+
+from todo import api
+```
+
+```
+# todo/api.py
+
+from todo.server import server
+
+@server.get("/hello")
+def hello():
+  return {
+    'message': 'Hello World'
+  }
 ```

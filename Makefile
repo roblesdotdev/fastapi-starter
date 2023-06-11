@@ -19,3 +19,7 @@ lint:
 # Run unit tests
 test:
 	python -m pytest -vv test_*.py
+
+# Run the server
+run:
+	uvicorn todo.server:server --reload
